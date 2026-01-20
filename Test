@@ -358,15 +358,23 @@ function Library:CreateWindow(config)
             btn.Size = UDim2.new(1, 0, 0, 32)
             btn.BackgroundColor3 = Color3.fromRGB(28, 28, 33)
             btn.BorderSizePixel = 0
-            btn.Text = btnConfig.Name
-            btn.TextColor3 = Color3.fromRGB(200, 200, 205)
-            btn.TextSize = 13
-            btn.Font = Enum.Font.Gotham
+            btn.Text = ""
             btn.Parent = tabContent
             
             local btnCorner = Instance.new("UICorner")
             btnCorner.CornerRadius = UDim.new(0, 4)
             btnCorner.Parent = btn
+            
+            local btnLabel = Instance.new("TextLabel")
+            btnLabel.Size = UDim2.new(1, -16, 1, 0)
+            btnLabel.Position = UDim2.new(0, 8, 0, 0)
+            btnLabel.BackgroundTransparency = 1
+            btnLabel.Text = btnConfig.Name
+            btnLabel.TextColor3 = Color3.fromRGB(200, 200, 205)
+            btnLabel.TextSize = 13
+            btnLabel.Font = Enum.Font.Gotham
+            btnLabel.TextXAlignment = Enum.TextXAlignment.Left
+            btnLabel.Parent = btn
             
             btn.MouseEnter:Connect(function()
                 tween(btn, {BackgroundColor3 = Color3.fromRGB(33, 33, 38)}, 0.15)
